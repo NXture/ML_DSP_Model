@@ -18,7 +18,8 @@ le_education = data["le_education"]
 
 def show_predict_page():
     st.title("Software Developer Salary Prediction")
-    st.write("""### We need some information to predict the salary""")
+    st.write("""Note: Predicted salaries for India & other countries are not that accurate, because we didn't have much data to train our model from those countries, except USA.""")
+    st.write("""### We need below mentioned information to predict the salary""")
 
     countries = (
         "United States",
@@ -59,3 +60,5 @@ def show_predict_page():
 
         salary = regressor.predict(X)
         st.subheader(f"The estimated salary is ${salary[0]:.2f}")
+        INR = salary*72
+        st.subheader(f"The salary converted to Indian Rupee: Rs{INR[0]:.2f}")
